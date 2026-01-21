@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Flask Templates</title>
+    <title>My flask app</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -46,9 +46,11 @@
         <nav>
             <a href="/">Home</a>
             <a href="/about">About</a>
+            <a href="/contact">Contact Me</a>
         </nav>
 
-        <h1>Welcome to Flask Templates!</h1>
+        <h1>Welcome,{{ name }}</h1>
+        <p>This page is now dynamic.</p>
 
         <p>This page is being served from an HTML file in the <code>templates/</code> folder.</p>
 
@@ -72,5 +74,5 @@
             <li><strong>Jinja2 Power:</strong> We can add Python-like logic to HTML (next part!)</li>
         </ul>
     </div>
-</body>
+</body>py
 </html>

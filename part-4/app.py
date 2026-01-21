@@ -55,6 +55,38 @@ def show_links():
     }
     return render_template('links.html', links=links)
 
+@app.route('/product/<int:product_id>')
+def product_details(product_id):
+    products = {
+        
+        1: {'name': 'Gaming Laptop', 'price': 1200},
+        2: {'name': 'Mechanical Keyboard', 'price': 100},
+        3: {'name': 'Wireless Mouse', 'price': 40}
+    }
+
+    product = products.get(product_id)
+
+    return render_template('product.html',product = product,product_id = product_id)
+
+@app.route('/category/<category_name>/product/<int:product_id>')
+def category_product_details(category_name,product_id):
+    products = {
+        
+        1: {'name': 'Gaming Laptop', 'price': 1200},
+        2: {'name': 'Mechanical Keyboard', 'price': 100},
+        3: {'name': 'Wireless Mouse', 'price': 40}
+    }
+    product = products.get(product_id)
+
+    if product:
+        return render_template('category_product.html', category=category_name, product=product)
+    else:
+        return "<h1>Product Not Found</h1>", 404
+
+
+@app.route('/search/<query>')
+def search(query):
+    return f"<h1>Search results for: {query}</h1>"
 
 if __name__ == '__main__':
     app.run(debug=True)

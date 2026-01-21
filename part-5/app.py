@@ -18,11 +18,11 @@ app = Flask(__name__)
 # =============================================================================
 
 PERSONAL_INFO = {
-    'name': 'Your Name',
-    'title': 'Web Developer',
+    'name': 'Anurag Patil',
+    'title': 'Web Developer,AI Engineer',
     'bio': 'A passionate developer learning Flask and web development.',
-    'email': 'your.email@example.com',
-    'github': 'https://github.com/yourusername',
+    'email': 'anuragpatil060@gmail.com',
+    'github': 'https://github.com/DarkNetNinja',
     'linkedin': 'https://linkedin.com/in/yourusername',
 }
 
@@ -30,14 +30,16 @@ SKILLS = [
     {'name': 'Python', 'level': 80},
     {'name': 'HTML/CSS', 'level': 75},
     {'name': 'Flask', 'level': 60},
-    {'name': 'JavaScript', 'level': 50},
+    {'name': 'C++', 'level': 50},
     {'name': 'SQL', 'level': 45},
 ]
 
 PROJECTS = [
-    {'id': 1, 'name': 'Personal Website', 'description': 'A Flask-powered personal portfolio website.', 'tech': ['Python', 'Flask', 'HTML', 'CSS'], 'status': 'Completed'},
-    {'id': 2, 'name': 'Todo App', 'description': 'A simple task management application.', 'tech': ['Python', 'Flask', 'SQLite'], 'status': 'In Progress'},
-    {'id': 3, 'name': 'Weather Dashboard', 'description': 'Display weather data from an API.', 'tech': ['Python', 'Flask', 'API'], 'status': 'Planned'},
+    {'id': 1, 'name': 'Portfolio', 'description': 'A Flask-powered personal portfolio website.', 'tech': ['Python', 'Flask', 'HTML', 'CSS'], 'status': 'Completed'},
+    {'id': 2, 'name': 'Recommendation Engine', 'description': 'A simple movie recommender', 'tech': ['Python', 'Flask', 'SQLite'], 'status': 'Completed'},
+    {'id': 3, 'name': 'receipt Generator', 'description': 'Generate a receipt after after shopping.', 'tech': ['Python', 'Flask', 'API'], 'status': 'In Progress'},
+    {'id': 4, 'name': 'tic tac toe game', 'description': 'simple web tic tac toe game.', 'tech': ['Python', 'Flask',], 'status': 'Planned'}
+    
 ]
 
 
@@ -73,6 +75,18 @@ def project_detail(project_id):
 @app.route('/contact')
 def contact():
     return render_template('contact.html', info=PERSONAL_INFO)
+
+blog_posts = [
+    {'id': 1, 'title': 'My First Post', 'content': 'Hello world! This is my start.'},
+    {'id': 2, 'title': 'Flask is Cool', 'content': 'I am learning about routes and templates.'},
+    {'id': 3, 'title': 'Life Update', 'content': 'Just coding and drinking coffee.'}
+]
+
+# --- 2. The Route ---
+@app.route('/blog')
+def blog():
+    # Pass the list of posts to the template
+    return render_template('blog.html', posts=blog_posts)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grades</title>
+    <style>
+        /* Simple CSS to make the table look nice */
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>My Grades</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Operating Systems (OS)</th>
+                <th>Computer Networks (CN)</th>
+                <th>Web Technology</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in grades %}
+            <tr>
+                <td>{{ item['OS'] }}</td>
+                <td>{{ item['CN'] }}</td>
+                <td>{{ item['Web Technology'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/">Back to Home</a>
+
+</body>
+</html>

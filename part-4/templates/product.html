@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }} - My Shop</title>
+</head>
+<body>
+    <h1>Product Details</h1>
+    <hr>
+    
+    {% if product %}
+        <h2>{{ product.name }}</h2>
+        <p><strong>Price:</strong> ${{ product.price }}</p>
+        <p><strong>ID:</strong> {{ product_id }}</p>
+        <a href="/">Back to Home</a>
+    {% else %}
+        <h2 style="color: red;">Product Not Found</h2>
+        <p>Sorry, product ID {{ product_id }} does not exist.</p>
+        <a href="/">Go Home</a>
+    {% endif %}
+
+</body>
+</html>

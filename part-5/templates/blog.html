@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blog</title>
+</head>
+<body>
+    <h1>My Personal Blog</h1>
+    <a href="/">Back to Home</a>
+    <hr>
+
+    {% for post in posts %}
+        <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <small>Post ID: {{ post.id }}</small>
+        </div>
+    {% endfor %}
+
+</body>
+</html>
