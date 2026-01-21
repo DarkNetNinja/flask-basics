@@ -3,17 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact me</title>
+    <title>Contact page</title>
 </head>
 <body>
-    <h1>Contact Page</h1>
-    <p>Feel free to reach out!</p>
-    
+    <h1>Contact me!</h1>
+    <p>my name is: Anurag</p>
+    <p>My Hobbies</p>
     <ul>
-        <li>Email: anurag@example.com</li>
-        <li>Phone: 123-456-7890</li>
+        <li>Drawing</li>
+        <li>Coding </li>
+        <li>Reading</li>
     </ul>
+    <form action ="/contact" method="post">
+        <label for = "name">Name:</label><br>
+        <input type ="text" id = "name" name="name" placeholder = "Enter your name" required><br><br>
 
-    <a href="/">Go back Home</a>
+        <lable for = "email">Email:</lable><br>
+        <input type = "email" id ="email" name ="email" placeholder = "Enter your Email" required><br><br>
+
+        <label for = "message">Message: </label><br>
+        <textarea id = "message" name = "message" rows = "5" cols = "30" placeholder = "Enter message" ></textarea><br><br>
+
+        <button type="Submit">Send Message</button>
+    </form>
+    
 </body>
 </html>
