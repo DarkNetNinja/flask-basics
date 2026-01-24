@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Calculator</title>
+    <style>
+        .calc-card {
+            border: 2px solid #333;
+            padding: 20px;
+            width: 300px;
+            margin: 50px auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        .result {
+            font-size: 24px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+     <div class ="calc-card">
+        <h2>Calculator result</h2>
+        <p>First Number: <strong>{{n1}}</strong></p>
+        <p>Second Number: <strong>{{n2}}</strong></p>
+
+        <hr>
+        <p>The total is: </p>
+        <div class = "result">{{total}}</div>
+
+        <br>
+        <a href = "{{url_for('home')}}">Go Back home</a>
+     </div>
+</body>
+</html>

@@ -82,7 +82,34 @@ def category_product_details(category_name,product_id):
         return render_template('category_product.html', category=category_name, product=product)
     else:
         return "<h1>Product Not Found</h1>", 404
+    
+@app.route('/add/<float:num1>/<float:num2>')
+def add_num(num1,num2):
+    result = num1 + num2
+    return render_template('calculator.html',n1= num1,n2 = num2,total = result)
 
+@app.route('/files/<path:file_path>')
+def show_file(file_path):
+    return f"<h1>You are accesing the file: {file_path}</h1>"
+
+@app.route('/convert/<float:amount>/from/<currency_from>/to/<currency_to>')
+def converter(amount,currency_from,currency_to):
+    rates = {
+        'USD': 1.0,
+        'EUR': 0.85,
+        'GBP': 0.75,
+        'INR': 83.0
+    }
+
+    if currency_from not in rates or currency_to not in rates:
+        return "<h1>Error: Currency not supported</h1>",400
+    
+    val_in_usd = amount/rates[currency_from]
+    converted_amount = val_in_usd * rates[currency_to]
+
+    final_amount = round(converted_amount,2)
+
+    return f"<h1>{amount} {currency_from}"
 
 @app.route('/search/<query>')
 def search(query):
