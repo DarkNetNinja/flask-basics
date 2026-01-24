@@ -2,19 +2,83 @@
 <html>
 <head>
     <title>My Blog</title>
+    <style>
+        /* 1. GLOBAL STYLES */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean, modern text */
+            background-color: #f4f4f9; /* Light grey background is easier on eyes than pure white */
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* 2. THE CONTAINER (Keeps content centered) */
+        .container {
+            max-width: 800px; /* Limits width so lines aren't too long */
+            margin: 0 auto;   /* Centers the container in the middle of the screen */
+        }
+
+        /* 3. HEADER STYLING */
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* 4. THE BLOG POST CARD (The detailed part) */
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;       /* Rounded corners */
+            box-shadow: 0px 5px 8px rgba(99, 0, 0, 0.1); /* The "Pop" effect */
+            padding: 25px;
+            margin-bottom: 30px;
+            transition: transform 0.2s; /* Smooth animation setup */
+        }
+
+        /* Hover Effect: Moves the card up slightly when you touch it */
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .post-title {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        .post-content {
+            color: #555;
+            line-height: 1.6; /* Adds space between lines of text */
+        }
+
+        .post-meta {
+            color: #999;
+            font-size: 0.85em;
+            margin-top: 15px;
+            display: block; /* Ensures it sits on its own line */
+        }
+    </style>
 </head>
 <body>
-    <h1>My Personal Blog</h1>
-    <a href="/">Back to Home</a>
-    <hr>
 
-    {% for post in posts %}
-        <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.content }}</p>
-            <small>Post ID: {{ post.id }}</small>
-        </div>
-    {% endfor %}
+    <div class="container">
+        <a href="/" class="back-link">← Back to Home</a>
+        <h1>My Personal Blog</h1>
+
+        {% for post in posts %}
+            <div class="blog-card">
+                <h2 class="post-title">{{ post.title }}</h2>
+                <p class="post-content">{{ post.content }}</p>
+                <small class="post-meta">Post ID: {{ post.id }}</small>
+            </div>
+        {% endfor %}
+    </div>
 
 </body>
 </html>

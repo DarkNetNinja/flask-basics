@@ -41,6 +41,12 @@ PROJECTS = [
     {'id': 4, 'name': 'tic tac toe game', 'description': 'simple web tic tac toe game.', 'tech': ['Python', 'Flask',], 'status': 'Planned'}
     
 ]
+blog_posts = [
+    {'id': 1, 'title': 'My First Post', 'content': 'Hello world! This is my start.'},
+    {'id': 2, 'title': 'Flask is Cool', 'content': 'I am learning about routes and templates.'},
+    {'id': 3, 'title': 'Life Update', 'content': 'Just coding and drinking coffee.'}
+]
+
 
 
 # =============================================================================
@@ -86,8 +92,24 @@ blog_posts = [
 @app.route('/blog')
 def blog():
     # Pass the list of posts to the template
-    return render_template('blog.html', posts=blog_posts)
+    
+        return render_template('blog.html', posts=blog_posts)
 
+@app.route('/skill/<skill_name>')
+def skill(skill_name):
+    found_skill = next((s for s in SKILLS if s['name'].lower() == skill_name.lower()),None)
+    related_projects = []
+    for project in PROJECTS:
+        tech_stack = [t.lower() for t in project['tech']]
+
+        if skill_name.lower() in tech_stack:
+            related_projects.append(project)
+
+    
+    if found_skill:
+        return render_template('skills.html',skill = found_skill,projects = related_projects)
+    else:
+        return "<h1>Skill not found!</h1>",404
 
 if __name__ == '__main__':
     app.run(debug=True)

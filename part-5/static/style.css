@@ -1,13 +1,10 @@
 /*
 =============================================================================
-Personal Website Styles
-=============================================================================
-This CSS file is served from the 'static' folder.
-Flask automatically serves files from static/ at /static/filename
+Personal Website Styles - "Modern Light" Theme
 =============================================================================
 */
 
-/* Reset and Base Styles */
+/* 1. RESET AND BASE STYLES */
 * {
     margin: 0;
     padding: 0;
@@ -17,11 +14,12 @@ Flask automatically serves files from static/ at /static/filename
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    /* CHANGED: Soft off-white background */
+    background-color: #f0f2f5; 
     color: #333;
-    background-color: #f8fafc;
 }
 
-/* Container */
+/* 2. CONTAINER */
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -29,314 +27,204 @@ body {
     min-height: calc(100vh - 160px);
 }
 
-/* Navigation */
+/* 3. NAVIGATION (Clean White with Shadow) */
 .navbar {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #ffffff;
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    /* Soft shadow instead of border */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Keeps navbar on top when scrolling */
 }
 
 .nav-brand a {
-    color: white;
+    /* Gradient Text for Brand */
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 15px;
 }
 
 .nav-links a {
-    color: rgba(255,255,255,0.9);
+    color: #64748b; /* Soft Grey */
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     padding: 8px 16px;
-    border-radius: 5px;
+    border-radius: 20px; /* Pill shape */
     transition: all 0.3s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    background: rgba(255,255,255,0.2);
-    color: white;
+    background: #e0e7ff; /* Very light blue background */
+    color: #2563eb; /* Strong Blue text */
 }
 
-/* Hero Section (Home Page) */
+/* Fix for the visited link color issue */
+.nav-links a:visited {
+    color: #64748b;
+}
+
+/* 4. HERO SECTION */
 .hero {
     text-align: center;
-    padding: 60px 20px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    margin-bottom: 30px;
+    padding: 80px 20px;
+    background: #ffffff;
+    border-radius: 20px;
+    /* Soft floating effect */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
+    margin-bottom: 40px;
 }
 
 .hero h1 {
     font-size: 48px;
-    color: #2d3748;
-    margin-bottom: 10px;
+    color: #1e293b;
+    margin-bottom: 15px;
 }
 
 .hero .title {
     font-size: 24px;
-    color: #667eea;
-    margin-bottom: 20px;
+    color: #6366f1; /* Indigo */
+    margin-bottom: 25px;
+    font-weight: 500;
 }
 
 .hero .bio {
     font-size: 18px;
-    color: #718096;
+    color: #475569;
     max-width: 600px;
     margin: 0 auto;
 }
 
-/* Cards */
+/* 5. CARDS (General) */
 .card {
-    background: white;
-    border-radius: 10px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 25px;
+    border: 1px solid #e2e8f0; /* Subtle border */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
 
 .card h2 {
-    color: #2d3748;
+    color: #1e293b;
     margin-bottom: 15px;
-    border-bottom: 2px solid #667eea;
+    border-bottom: 3px solid #60a5fa; /* Thicker blue underline */
     padding-bottom: 10px;
+    display: inline-block;
 }
 
-.card h3 {
-    color: #4a5568;
-    margin-bottom: 10px;
-}
-
-/* Skills */
-.skill-item {
-    margin-bottom: 15px;
-}
-
+/* 6. SKILLS BARS */
 .skill-name {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-    font-weight: 500;
+    color: #334155;
+    margin-bottom: 8px;
+    font-weight: 600;
 }
 
 .skill-bar {
-    background: #e2e8f0;
-    border-radius: 10px;
+    background: #e2e8f0; /* Light grey track */
     height: 12px;
-    overflow: hidden;
+    border-radius: 6px;
 }
 
 .skill-progress {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    height: 100%;
-    border-radius: 10px;
-    transition: width 0.5s ease;
+    /* Fresh Blue/Cyan Gradient */
+    background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
+    border-radius: 6px;
 }
 
-/* Projects Grid */
+/* 7. PROJECTS GRID */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .project-card {
-    background: white;
-    border-radius: 10px;
+    background: #ffffff;
+    border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); /* Deeper shadow on hover */
 }
 
 .project-card h3 {
-    color: #2d3748;
+    color: #2563eb;
+    font-size: 1.4rem;
     margin-bottom: 10px;
 }
 
 .project-card p {
-    color: #718096;
-    margin-bottom: 15px;
-}
-
-.tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 15px;
+    color: #64748b;
 }
 
 .tech-tag {
-    background: #ebf8ff;
-    color: #2b6cb0;
-    padding: 4px 12px;
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    padding: 5px 12px;
     border-radius: 15px;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
-/* Status Badges */
-.status {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.status-completed {
-    background: #c6f6d5;
-    color: #276749;
-}
-
-.status-in-progress {
-    background: #feebc8;
-    color: #c05621;
-}
-
-.status-planned {
-    background: #e9d8fd;
-    color: #6b46c1;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
+/* 8. BUTTONS */
 .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
     color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    transition: transform 0.2s ease;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
 }
 
-.btn-secondary {
-    background: #edf2f7;
-    color: #4a5568;
-}
-
-.btn-secondary:hover {
-    background: #e2e8f0;
-}
-
-/* Contact Info */
-.contact-item {
-    display: flex;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.contact-item:last-child {
-    border-bottom: none;
-}
-
-.contact-item span {
-    font-weight: 500;
-    color: #4a5568;
-    min-width: 100px;
-}
-
-.contact-item a {
-    color: #667eea;
-    text-decoration: none;
-}
-
-.contact-item a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
-.footer {
-    background: #2d3748;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-.footer-note {
-    color: #a0aec0;
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-/* Info Box */
-.info-box {
-    background: #ebf8ff;
-    border-left: 4px solid #4299e1;
-    padding: 15px 20px;
-    border-radius: 0 5px 5px 0;
-    margin: 20px 0;
-}
-
-.info-box.success {
-    background: #f0fff4;
-    border-color: #48bb78;
-}
-
-.info-box.warning {
-    background: #fffaf0;
-    border-color: #ed8936;
-}
-
-/* Not Found */
-.not-found {
-    text-align: center;
-    padding: 40px;
-}
-
-.not-found h2 {
-    color: #e53e3e;
-    margin-bottom: 15px;
-}
-
-/* Responsive Design */
+/* 9. RESPONSIVE (Mobile) */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        gap: 15px;
+        padding: 15px;
     }
 
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
+        margin-top: 15px;
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .nav-links a {
+        display: block;
+        text-align: center;
+        background: #f8fafc;
     }
 
     .hero h1 {
-        font-size: 32px;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
+        font-size: 36px;
     }
 }
-
