@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class = "card " style = "max-width : 600px; margin: 0 auto">
+        <h1>Add New Task</h1>
+        <hr><br>
+
+        <form action = "/add" method = "POST">
+            <label>Task Title:</label><br>
+            <input type = "text" name ="title" required style="width: 100px;padding :10px;margin-bottom:15px;">
+
+            <label>Description: </label> <br>
+            <textarea name="desc" style = "width: 100%; padding:10px;margin-bottom : 15px;"></textarea>
+
+            <label>Status:</label><br>
+            <select name = "status" style = "width: 100%;padding:10px; margin-bottom:15px;">
+                <option value="pending">Pending</option>
+                <option value="In Progress">In progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+
+            <label>Priority:</label><br>
+            <select name="priority" style = "width:100%; padding:10px; margin-bottom: 20px;">
+                <option value = "Low">Low</option>
+                <option value = "Medium">Medium</option>
+                <option value = "High">High</option>
+            </select>
+
+            <button type=" submit" class = "btn-primary">Save Task</button>
+        </form>
+    </div>
+{%endblock%}

@@ -1,0 +1,31 @@
+{%extends "base.html" %}
+
+{%block content%}
+
+    <div class = "hero" style="padding:30px;">
+        <h1>My Tasks</h1>
+        <p>Stay focused,stay Productive</p>
+    </div>
+    <div class = "projects-grid">
+        {%for task in tasks%}
+        <div class = "card">
+            <h2>{{task.title}}</h2>
+
+            <p>Status: 
+                {%if task.status == 'Completed' %}
+                    <span style = "color:green;font-weight:bold;">{{task.status}}</span>
+                {%else%}
+                    <span style = "color: orange; font-weight:bold;">{{task.status}}</span>
+                {% endif %}
+            </p>
+
+            <p>Priority: <strong>{{task.priority}}</strong></p>
+            <br>
+            <a href = "{{url_for('view_task',id = task.id)}}" class = "btn-primary">Veiw Details</a>
+
+        </div>
+        {% else %}
+        <p>No tasks found.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

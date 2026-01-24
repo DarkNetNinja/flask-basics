@@ -1,0 +1,157 @@
+/* =========================================
+   TO-DO APP LIGHT THEME
+   File: static/style.css
+   =========================================
+*/
+
+/* 1. RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6; /* Very light grey background */
+    color: #1f2937; /* Dark grey text (easier to read than pure black) */
+    line-height: 1.6;
+}
+
+/* 2. LAYOUT */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 3. NAVIGATION BAR */
+.navbar {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Soft shadow */
+    margin-bottom: 30px;
+}
+
+.nav-brand a {
+    color: #2563eb; /* Royal Blue */
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+/* 4. CARDS (The Tasks) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Card floating effect */
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Move up slightly on hover */
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+/* 5. PRIORITY BORDERS (The Side Colors) */
+/* These match the class names in your HTML: priority-high, priority-medium */
+.priority-high {
+    border-left: 5px solid #ef4444; /* Red */
+}
+
+.priority-medium {
+    border-left: 5px solid #f59e0b; /* Orange */
+}
+
+.priority-low {
+    border-left: 5px solid #10b981; /* Green */
+}
+
+/* 6. BUTTONS */
+.btn-primary {
+    display: inline-block;
+    background-color: #2563eb;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8; /* Darker blue on hover */
+}
+
+/* 7. FORMS (For the Add Page) */
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #2563eb; /* Blue highlight when typing */
+    border-color: transparent;
+}
+
+/* 8. UTILITIES */
+.hero {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    color: #111827;
+}

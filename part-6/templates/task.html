@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href = "/" class = "black-link">Back to List</a>
+<br><br>
+
+<div class="card" style = "text-align: center;">
+    <small>Task #{{task.id}}</small>
+    <h1>{{task.title}}</h1>
+    <hr>
+    <p style = "Font-size:1.2rem; margin:20px 0;">{{task.desc}}</p>
+    <div class = "info=box">
+        Status: {{task.status}} | Priority: {{task.priority}}
+    </div>
+</div>
+
+{% endblock %}
